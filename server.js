@@ -37,6 +37,7 @@ app.post('/computeRoutes', async (req, res) => {
         console.log(response.data);
         res.json(response.data);
     } catch (error) {
+        console.log(error)
         res.status(500).send(error.toString());
     }
 });
