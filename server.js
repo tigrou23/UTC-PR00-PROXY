@@ -11,6 +11,7 @@ app.use(express.json());
 
 app.get('/weather', async (req, res) => {
     const { lat, lon } = req.query;
+    console.log(lat, lon);
     try {
         const response = await axios.get('https://api.openweathermap.org/data/2.5/weather', {
             params: {
@@ -20,6 +21,7 @@ app.get('/weather', async (req, res) => {
                 appid: process.env.API_KEY_WEATHER
             }
         });
+        console.log(response.data);
         res.json(response.data);
     } catch (error) {
         res.status(500).send(error.toString());
