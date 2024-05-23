@@ -24,7 +24,6 @@ app.get('/weather', async (req, res) => {
 });
 
 app.post('/computeRoutes', async (req, res) => {
-    console.log(req.body);
     try {
         const response = await axios.post('https://routes.googleapis.com/directions/v2:computeRoutes', req.body, {
             headers: {
@@ -33,11 +32,8 @@ app.post('/computeRoutes', async (req, res) => {
                 'X-Goog-FieldMask': 'routes.legs.steps.transitDetails'
             }
         });
-        console.log(response)
-        console.log(response.data);
         res.json(response.data);
     } catch (error) {
-        console.log(error)
         res.status(500).send(error.toString());
     }
 });
