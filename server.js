@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const app = express();
+const fs = require('fs');
+const https = require('https');
 const port = 3000;
 
 app.use(cors());
@@ -41,6 +43,11 @@ app.post('/computeRoutes', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+const httpsOptions = {
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem')
+}
+
+https.createServer(httpsOptions, app).listen(port, () => {
+    console.log(`Server running at https://localhost:${port}`);
 });
