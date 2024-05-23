@@ -24,6 +24,7 @@ app.get('/weather', async (req, res) => {
 });
 
 app.post('/computeRoutes', async (req, res) => {
+    console.log(req.body);
     try {
         const response = await axios.post('https://routes.googleapis.com/directions/v2:computeRoutes', req.body, {
             headers: {
