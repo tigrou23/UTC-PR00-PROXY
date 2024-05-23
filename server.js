@@ -33,6 +33,8 @@ app.post('/computeRoutes', async (req, res) => {
                 'X-Goog-FieldMask': 'routes.legs.steps.transitDetails'
             }
         });
+        console.log(response)
+        console.log(response.data);
         res.json(response.data);
     } catch (error) {
         res.status(500).send(error.toString());
