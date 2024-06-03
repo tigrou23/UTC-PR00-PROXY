@@ -3,7 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const app = express();
-const port = 3000;
+const tableController = require('./controllers/itineraireController');
+require("dotenv").config();
+
+const PORT = process.env.PORT;
 
 app.use(cors());
 
@@ -37,12 +40,13 @@ app.post('/computeRoutes', async (req, res) => {
                 'X-Goog-FieldMask': 'routes.legs.steps.transitDetails'
             }
         });
+        tableController.create(response.data);
         res.json(response.data);
     } catch (error) {
         res.status(500).send(error.toString());
     }
 });
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Example app listening at http://localhost:${PORT}`);
 });
