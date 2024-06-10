@@ -47,6 +47,17 @@ app.post('/computeRoutes', async (req, res) => {
     }
 });
 
+app.get('/itineraires', async (req, res) => {
+    try {
+        const response = await tableController.findAll();
+        res.json(response);
+    } catch (error) {
+        res
+            .status(500)
+            .send(error.toString());
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`);
 });

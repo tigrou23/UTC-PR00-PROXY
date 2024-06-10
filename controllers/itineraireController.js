@@ -8,6 +8,7 @@ controller.create = async function (data) {
         if (data.routes[route].legs[route].steps[i].transitDetails) {
             nomLigne = data.routes[route].legs[route].steps[i].transitDetails.transitLine.name
             mode = data.routes[route].legs[route].steps[i].transitDetails.transitLine.vehicle.name.text
+            if(mode == "Train" && data.routes[route].legs[route].steps[i].transitDetails.transitLine.agencies[0].name == "RER") mode = "RER"
             try {
                 const userData = await table.create({
                     nomLigne: nomLigne,
@@ -18,6 +19,15 @@ controller.create = async function (data) {
                 console.log(error);
             }
         }
+    }
+};
+
+controller.findAll = async function () {
+    try {
+        const userData = await table.findAll();
+        return userData;
+    } catch (error) {
+        console.log(error);
     }
 };
 
