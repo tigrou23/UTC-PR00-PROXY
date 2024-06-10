@@ -19,6 +19,26 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             allowNull: true,
             unique: false
+        },
+        latitude_depart: {
+            type: DataTypes.STRING(100),
+            allowNull: true,
+            unique: false
+        },
+        longitude_depart: {
+            type: DataTypes.STRING(100),
+            allowNull: true,
+            unique: false
+        },
+        latitude_arrivee: {
+            type: DataTypes.STRING(100),
+            allowNull: true,
+            unique: false
+        },
+        longitude_arrivee: {
+            type: DataTypes.STRING(100),
+            allowNull: true,
+            unique: false
         }
     }, {
         freezeTableName: true,

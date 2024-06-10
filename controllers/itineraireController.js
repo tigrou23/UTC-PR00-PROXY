@@ -13,7 +13,11 @@ controller.create = async function (data) {
                 const userData = await table.create({
                     nomLigne: nomLigne,
                     mode: mode,
-                    date: new Date()
+                    date: new Date(),
+                    latitude_depart: data.routes[route].legs[route].steps[i].transitDetails.stopDetails.departureStop.location.latLng.latitude,
+                    longitude_depart: data.routes[route].legs[route].steps[i].transitDetails.stopDetails.departureStop.location.latLng.longitude,
+                    latitude_arrivee: data.routes[route].legs[route].steps[i].transitDetails.stopDetails.arrivalStop.location.latLng.latitude,
+                    longitude_arrivee: data.routes[route].legs[route].steps[i].transitDetails.stopDetails.arrivalStop.location.latLng.longitude
                 });
             } catch (error) {
                 console.log(error);
