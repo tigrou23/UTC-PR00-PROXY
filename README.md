@@ -1,5 +1,5 @@
 # UTC-PR00-PROXY
-⚠️ Annexe du projet [UTC-PR00](https://https://github.com/tigrou23/UTC-PR00) ⚠️
+⚠️ Annexe du projet [UTC-PR00](https://github.com/tigrou23/UTC-PR00) ⚠️
 ___
 Lien vers le site : [https://pr00.hugopereira.fr](https://pr00.hugopereira.fr).
 ___
